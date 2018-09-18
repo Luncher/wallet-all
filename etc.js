@@ -14,6 +14,13 @@ class ETCWallet {
     return this.wallet.transferAll(address)
   }
 
+  hasEnoughBalance (amount) {
+    return this.getBalance()
+      .then(balance => {
+        return balance > amount
+      })
+  }
+
   getBalance () {
     return this.wallet.getBalance().then(balance => parseFloat(balance).toFixed(2))
   }

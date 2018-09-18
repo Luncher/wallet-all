@@ -26,12 +26,19 @@ class ETHWallet {
     return this.transfer(address, balance)
   }
 
+  hasEnoughBalance (amount) {
+    return this.getBalance()
+      .then(balance => {
+        return ethers.utils.bigNumberify(amount).gte(balance)
+      })
+  }
+
   getBalance () {
     return this.wallet.getBalance()
-      .then(balance => {
-        return balance.toNumber()
-      })
-      .then(balance => parseFloat(balance).toFixed(2))
+      // .then(balance => {
+      //   return balance.toNumber()
+      // })
+      // .then(balance => parseFloat(balance).toFixed(2))
   }
 
   getTransactionCount () {
