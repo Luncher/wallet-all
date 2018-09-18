@@ -29,7 +29,7 @@ class ETHWallet {
   hasEnoughBalance (amount) {
     return this.getBalance()
       .then(balance => {
-        return ethers.utils.bigNumberify(amount).gte(balance)
+        return balance.gte(ethers.utils.parseEther(String(amount)))
       })
   }
 
