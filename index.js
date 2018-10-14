@@ -1,7 +1,7 @@
 const ETHWallet = require('./eth')
 const XMRWallet = require('./xmr')
 const ETCWallet = require('./etc')
-const SUBBitWallet = require('./sumbit')
+const SUMBitWallet = require('./sumbit')
 
 function createWalletByType (type, options) {
   let instance
@@ -18,8 +18,8 @@ function createWalletByType (type, options) {
       instance = new XMRWallet(options)
       break
     }
-    case 'SUBBIT': {
-      instance = new SUBBitWallet(options)
+    case 'SUMBIT': {
+      instance = new SUMBitWallet(options)
       break
     }
     default: {
